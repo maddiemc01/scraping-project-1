@@ -21,5 +21,4 @@ class Article
   def self.find_by_id(id)
     all.find { |article| article.id == id }
   end
-
 end
