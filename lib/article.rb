@@ -2,7 +2,7 @@
 #no puts, just stores instances of data i.e. attributes
 
 class Article
-  attr_accessor :title, :author, :url, :date, :bio, :id
+  attr_accessor :title, :author, :url, :date, :biopart1, :biopart2, :id
 
   @@all = []
   @@current_id = 1
