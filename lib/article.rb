@@ -7,12 +7,11 @@ class Article
   @@all = []
   @@current_id = 1
 
-  def initialize(title = nil, author = nil, url = nil, date = nil, bio = nil)
+  def initialize(title = nil, author = nil, url = nil)
     @title = title
     @author = author
     @url = url
-    @date = date
-    @bio = bio
+    @date
     @id = @@current_id
     @@all << self
     @@current_id += 1
