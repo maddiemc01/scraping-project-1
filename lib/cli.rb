@@ -6,10 +6,37 @@ require 'pry'
 class Cli
 
   def call
-  puts "Welcome fashionista/o! We have a list of articles that has all the latest fashion trends. Please select an article, 1-9, to get more details."
-  puts "1 represents the most recent article, 9 reprsents the oldest"
     Scraper.new
+    puts "Welcome fashionista/o!"
+    puts "Here you can stay up to date with all the latest fashion trends."
+    #start
   end
+
+  def start
+    article_list
+    puts "Choose an article by typing the article ID number it is associated with."
+    puts "If you would like to exit, type 'exit'"
+    input = gets.strip.downcase
+    if input == "exit"
+      puts "thanks for browsing, see you later!"
+      exit
+    elsif
+
+
+  end
+
+  def article_list
+    puts "Current Articles:"
+    Article.all.map do |art|
+      puts "* Article ID: #{art.id}"
+      puts "* Name: #{art.title}"
+      puts "* Author: #{art.author}"
+      puts "*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*"
+    end
+  end
+
+  def make_selection
+    puts"
 
 end
 
