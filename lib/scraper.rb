@@ -8,7 +8,7 @@ class Scraper
       title = artinfo.css(" .feed-card--title a").text
       author = artinfo.css(".contributor-byline--name").text
       url = artinfo.css(" .feed-card--title a").attr("href").text
-      Article.new(title, author)
+      Article.new(title, author, url)
     end
   end
 
@@ -17,11 +17,9 @@ class Scraper
     # end
   def scrape_article(article)
     article_page = Nokogiri::HTML(HTTParty.get(article.url))
-    article.bio = article_page.css(".body gallery__intro__body p")
-    article.date = article_page.css(".content-header__publish-date")
-    binding.pry
+    article.bio = article_page.css("p")[2,3].text
+    article.date = article_page.css(".content-header__publish-date").text
   end
-
 
 
 
