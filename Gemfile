@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-gem 'httparty'
-gem 'pry'
-gem 'nokogiri'
-gem 'require_all'
-gem 'rubocop'
-gem 'rubocop-performance'
+gem "httparty"
+gem "nokogiri"
+gem "pry"
+gem "require_all"
+gem "rubocop"
+gem "rubocop-performance"
