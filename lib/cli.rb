@@ -7,8 +7,11 @@ require "pry"
 class Cli
   def call
     Scraper.new
-    puts "Welcome fashionista/fashionisto!"
-    puts "Here you can stay up to date with all the latest fashion trends."
+    print "*~~*~~*".colorize(:light_blue)
+    print " Welcome fashionista/fashionisto! ".colorize(:light_blue).underline
+    puts "*~~*~~*".colorize(:light_blue)
+    print "Here you can stay up to date".colorize(:light_blue)
+    puts " with all the latest fashion trends.".colorize(:light_blue)
     start
   end
 
@@ -17,18 +20,21 @@ class Cli
     print "Choose an article by entering the article ID number"
     puts " it is associated with."
     loop do
-      puts "If you would like to exit, type 'exit'"
+      print "If you would like to"
+      print " exit".colorize(:red)
+      puts ", type 'exit'"
       conditional
     end
   end
 
   def list
-    puts "Current Articles to Explore:"
+    puts ""
+    puts "Current Articles to Explore:".colorize(:light_blue).underline
     Article.all.map do |art|
       puts "* Article ID: #{art.id}"
       puts "* Title: #{art.title}"
       puts "* Author: #{art.author}"
-      puts "*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*"
+      puts "*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*".colorize(:light_blue)
     end
   end
 
@@ -44,13 +50,14 @@ class Cli
   end
 
   def ex
-    puts "Thanks for browsing, see you later!"
+    puts "Thanks for browsing, see you later!".colorize(:light_blue)
     exit
   end
 
   def error
-    print "Sorry, there is currently no article associated with that ID,"
-    puts " try entering a different ID:"
+    print "Sorry,".colorize(:red)
+    print " there is currently no article associated with that ID,"
+    puts " try entering a different ID:".colorize(:red)
   end
 
   def info(input)
@@ -60,15 +67,28 @@ class Cli
   end
 
   def info_layout(article)
-    print "You have chosen '#{article.title}', written on #{article.date}."
-    puts ""
-    print "To give you an idea of what this article is about,"
-    puts " here is an abstract:"
-    puts "    #{article.biopart1}"
-    puts "    #{article.biopart2}"
-    puts "If interested in the full article, visit: #{article.url}"
-    puts ""
+    first_sec(article)
+    second_sec(article)
     print "If you'd like to look at a different article,"
     puts " enter that article's ID number."
+  end
+
+  def first_sec(article)
+    print "You have chosen".colorize(:light_blue)
+    print " '#{article.title}'"
+    print ", written on".colorize(:light_blue)
+    puts " #{article.date}."
+    puts ""
+  end
+
+  def second_sec(article)
+    print "To give you an idea of what this article is about,"
+    print " here is an"
+    puts " abstract:".colorize(:light_blue)
+    puts "    #{article.biopart1}"
+    puts "    #{article.biopart2}"
+    print "If interested in the full article, visit:".colorize(:light_blue)
+    puts " #{article.url}"
+    puts ""
   end
 end
