@@ -17,6 +17,9 @@ AllCops:
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
@@ -79,6 +82,9 @@ Style/RescueStandardError:
 # Use single quotes only if their semantics are needed.
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/SlicingWithRange:
+  Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma

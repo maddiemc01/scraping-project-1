@@ -3,7 +3,8 @@ require "pry"
 class Scraper
   # scrapes (articles list)
   def initialize
-    page = Nokogiri::HTML(HTTParty.get("https://www.vogue.com/fashion/trends").body)
+    page = Nokogiri::HTML(HTTParty.get("https://www.vogue.com/fashion/trends")
+    .body)
     page.css(".feed-card").each do |artinfo|
       title = artinfo.css(" .feed-card--title a").text
       author = artinfo.css(".contributor-byline--name").text

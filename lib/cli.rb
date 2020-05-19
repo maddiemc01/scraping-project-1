@@ -30,11 +30,16 @@ class Cli
   def list
     puts ""
     puts "Current Articles to Explore:".colorize(:light_blue).underline
+    list_art
+  end
+
+  def list_art
     Article.all.map do |art|
       puts "* Article ID: #{art.id}"
       puts "* Title: #{art.title}"
       puts "* Author: #{art.author}"
-      puts "*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*~~*".colorize(:light_blue)
+      print "*~~*~~*~~*~~*~~*~~*~~*".colorize(:light_blue)
+      puts "~~*~~*~~*~~*~~*~~*~~*~~*".colorize(:light_blue)
     end
   end
 
