@@ -4,5 +4,11 @@
 class Article
 
 
+ def initialize(title, author)
+end
 
+
+def link
+
+end
 end
