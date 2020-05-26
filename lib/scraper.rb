@@ -1,7 +1,4 @@
-require "pry"
-# no "puts"
 class Scraper
-  # scrapes (articles list)
   def initialize
     page = Nokogiri::HTML(HTTParty.get("https://www.vogue.com/fashion/trends")
     .body)
@@ -13,7 +10,6 @@ class Scraper
     end
   end
 
-  # scrapes each article's bio/ info
   def scrape_article(article)
     article_page = Nokogiri::HTML(HTTParty.get(article.url).body)
     article.biopart1 = article_page.css("p")[2].text

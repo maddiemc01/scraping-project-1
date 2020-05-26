@@ -1,9 +1,3 @@
-require "pry"
-# responsible for communication with the user
-# puts a lot
-# invokes scraper class
-# not using noku (for scraping)
-
 class Cli
   def call
     Scraper.new
@@ -28,8 +22,7 @@ class Cli
   end
 
   def list
-    puts ""
-    puts "Current Articles to Explore:".colorize(:light_blue).underline
+    puts "\nCurrent Articles to Explore:".colorize(:light_blue).underline
     list_art
   end
 
@@ -72,13 +65,13 @@ class Cli
   end
 
   def info_layout(article)
-    first_sec(article)
-    second_sec(article)
+    first_section(article)
+    second_section(article)
     print "If you'd like to look at a different article,"
     puts " enter that article's ID number."
   end
 
-  def first_sec(article)
+  def first_section(article)
     print "You have chosen".colorize(:light_blue)
     print " '#{article.title}'"
     print ", written on".colorize(:light_blue)
@@ -86,7 +79,7 @@ class Cli
     puts ""
   end
 
-  def second_sec(article)
+  def second_section(article)
     print "To give you an idea of what this article is about,"
     print " here is an"
     puts " abstract:".colorize(:light_blue)
